@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="https://pics7.baidu.com/feed/4b90f603738da977a7d3826b9402ec158718e355.jpeg@f_auto?token=decd3701d00b64b15f87010a821d7c6e"  style="width: 100%;" /> -->
+    <img src="https://storage2.igancao.com/group1/M00/6E/A9/841b43f0da0311ac81fcc81b321d15e5.png" style="width: 100%;" >
+</body>
+<script src="./PrintWorld.js"></script>
+<script>
+    var pw = GetPrintWorld();    //获取打天下对象
+    var json = {};
+    json.action = "previewfile";
+    // json.action="printfile"
+    json.format = "image_url";        //指定格式为image_url。
+    json.content = 'https://storage2.igancao.com/group1/M00/6E/A9/841b43f0da0311ac81fcc81b321d15e5.png';   //图像文件的url路径
+    // json.content = 'https://pics7.baidu.com/feed/4b90f603738da977a7d3826b9402ec158718e355.jpeg@f_auto?token=decd3701d00b64b15f87010a821d7c6e';
+    json.paperlength =15;  //纸张长度，单位厘米
+    json.paperwidth = 10;  //纸张宽度，单位厘米
+    json.printer= "";   //打印机名称，为空或者不指定，则通过缺省打印机打印。
+
+    pw.CallbackOnPrintTaskStatus(Callback4PrintTaskStatus);//指定回调函数（见下面）
+  
+    pw.Act(json);
+
+    /**
+    * 打印回调函数
+    * @json，一个JSON对象。
+    */
+    var prnStatusCollect = {    //打印机状态集合
+        PRINTER_STATUS_PAUSED:            0x00000001,
+        PRINTER_STATUS_ERROR:             0x00000002,
+        PRINTER_STATUS_PENDING_DELETION:  0x00000004,
+        PRINTER_STATUS_PAPER_JAM:         0x00000008,
+        PRINTER_STATUS_PAPER_OUT:         0x00000010,
+        PRINTER_STATUS_MANUAL_FEED:       0x00000020,
+        PRINTER_STATUS_PAPER_PROBLEM:     0x00000040,
+        PRINTER_STATUS_OFFLINE:           0x00000080,
+        PRINTER_STATUS_IO_ACTIVE:         0x00000100,
+        PRINTER_STATUS_BUSY:              0x00000200,
+        PRINTER_STATUS_PRINTING:          0x00000400,
+        PRINTER_STATUS_OUTPUT_BIN_FULL:   0x00000800,
+        PRINTER_STATUS_NOT_AVAILABLE:     0x00001000,
+        PRINTER_STATUS_WAITING:           0x00002000,
+        PRINTER_STATUS_PROCESSING:        0x00004000,
+        PRINTER_STATUS_INITIALIZING:      0x00008000,
+        PRINTER_STATUS_WARMING_UP:        0x00010000,
+        PRINTER_STATUS_TONER_LOW:         0x00020000,
+        PRINTER_STATUS_NO_TONER:          0x00040000,
+        PRINTER_STATUS_PAGE_PUNT:         0x00080000,
+        PRINTER_STATUS_USER_INTERVENTION: 0x00100000,
+        PRINTER_STATUS_OUT_OF_MEMORY:     0x00200000,
+        PRINTER_STATUS_DOOR_OPEN:         0x00400000,
+        PRINTER_STATUS_SERVER_UNKNOWN:    0x00800000,
+        PRINTER_STATUS_POWER_SAVE:        0x01000000,
+        PRINTER_STATUS_SERVER_OFFLINE:    0x02000000,
+        PRINTER_STATUS_DRIVER_UPDATE_NEEDED:    0x04000000
+    };
+    var jobStatusCollect = {    //打印Job状态集合
+        JOB_STATUS_BLOCKED_DEVQ:    0x00000200, //The driver cannot print the job.
+        JOB_STATUS_COMPLETE:        0x00001000, //Windows XP and later: Job is sent to the printer, but the job may not be printed yet.
+        JOB_STATUS_DELETED:         0x00000100, //Job has been deleted.
+        JOB_STATUS_DELETING:        0x00000004, //Job is being deleted.
+        JOB_STATUS_ERROR:           0x00000002, //An error is associated with the job.
+        JOB_STATUS_OFFLINE:         0x00000020, //Printer is offline.
+        JOB_STATUS_PAPEROUT:        0x00000040, //Printer is out of paper.
+        JOB_STATUS_PAUSED:          0x00000001, //Job is paused.
+        JOB_STATUS_PRINTED:         0x00000080, //Job has printed.
+        JOB_STATUS_PRINTING:        0x00000010, //Job is printing.
+        JOB_STATUS_RESTART:         0x00000800, //Job has been restarted.
+        JOB_STATUS_RETAINED:        0x00002000, //Windows Vista and later: Job has been retained in the print queue and cannot be deleted. 
+        JOB_STATUS_SPOOLING:        0x00000008, //Job is spooling.
+        JOB_STATUS_USER_INTERVENTION:   0x00000400  //Printer has an error that requires the user to do something.
+    };
+
+    var  msg = "";
+    function Callback4PrintTaskStatus(json) {
+        console.log(json)
+        
+        switch(json.stage) {
+            case "starting"://打印任务已经提交给打天下
+            break;
+            case "printing"://打印中
+                msg = "";
+                if (json.jobstatus == 0) {
+                    msg += "The print queue was paused after the document finished spooling.\n";
+                } else if (json.jobstatus & jobStatusCollect.JOB_STATUS_ERROR) {
+                    msg += "An error is associated with the job.\n";
+                }
+                
+                if (json.prnstatus & prnStatusCollect.PRINTER_STATUS_PAPER_OUT) {//缺纸
+                    msg += "缺纸";
+                }
+                if (json.prnstatus & prnStatusCollect.PRINTER_STATUS_PAPER_JAM) {//卡纸
+                    msg += "卡纸";
+                }
+                //...; 根据你的需要，加上其他可能的打印机异常状态判断。更多的打印机状态值请参见“获取打印机状态”
+                if(msg!="") {
+                    console.log('打印中' + msg)
+                }
+            break;
+            case "jobending"://一个打印Job结束，有两种情况：1、Job打印完毕；2、打印Job被人为取消或删除
+                console.log("打印完毕或者打印任务被取消!");
+            break;
+            case "ending"://打印任务结束
+            if(json.jobstatustext!="") {//说明打印准备过程中出错，由于并没有真正启动打印，这种情况不会有"printing"和"jobending"这两个阶段出现。
+                console.log(json.jobstatustext);
+            }
+            break;
+            default:
+            break;
+        }
+    }
+
+</script>
+</html>

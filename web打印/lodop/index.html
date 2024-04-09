@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>G16817839638611096 共1单</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "SimHei", " Microsoft YaHei" !important;
+            }
+
+            .print-wrapper {
+                width: 800px;
+                margin: auto;
+            }
+
+            .clear:before {
+                content: '';
+                display: table;
+            }
+
+            .clear:after {
+                content: '';
+                display: table;
+                clear: both;
+            }
+
+            .flo-l {
+                float: left;
+            }
+
+            .flo-r {
+                float: right;
+            }
+
+            .relative {
+                position: relative;
+            }
+
+            .overflow-hidden {
+                overflow: hidden;
+            }
+
+            .code {
+                float: right;
+                height: 60px;
+            }
+
+            .logo {
+                display: inline-block;
+                height: 40px;
+                vertical-align: middle;
+                margin-right: 17px;
+            }
+
+            .logo-title {
+                font-size: 30px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .small-title {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
+            .userinfo-wrapper {
+                border: 1px solid #333;
+                border-radius: 6px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .userinfo-box {
+                font-size: 13px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .userinfo-box+.userinfo-box {
+                border-top: 1px solid #333;
+            }
+
+            .userinfo-box-limit {
+                display: inline-block;
+                width: 24%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: normal;
+            }
+
+            .userinfo-box-limit:not(:last-child) {
+                border-right: 1px solid #333;
+            }
+
+            .userinfo-box-limit:not(:first-child) {
+                padding-left: 17px;
+            }
+
+            .userinfo-box-limit.last {
+                border-right: none;
+                padding-left: 0;
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+            .col-two-side {
+                display: inline-block;
+                vertical-align: bottom;
+                width: 50%;
+                box-sizing: border-box;
+            }
+
+            .col-two-side:first-child {
+                padding-right: 20px;
+            }
+
+            .col-two-side:last-child {
+                padding-left: 14px;
+            }
+
+            .item-title {
+                font-size: 15px;
+                position: relative;
+                line-height: 22px;
+            }
+
+            .font-none {
+                font-size: 0;
+            }
+
+            .bottom-align {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            .font-14 {
+                font-size: 14px;
+            }
+
+            .item-box {
+                font-size: 12px;
+                padding-top: 17px;
+                padding-bottom: 17px;
+            }
+
+            .item-box-supplier {
+                font-size: 12px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                border-top: 1px solid #333;
+            }
+
+            .item-box-supplier.zcy {
+                padding-top: 11px;
+                padding-bottom: 11px;
+                font-size: 0;
+            }
+
+            .item-box.zcy {
+                padding-top: 11px;
+                padding-bottom: 11px;
+                font-size: 0;
+            }
+
+
+            .item-box-inner {
+                width: 16.6666%;
+                float: left;
+                font-size: 13px;
+                vertical-align: middle;
+            }
+
+
+
+            /*    .item-box-inner-wide {
+        width: 20%;
+        float: left;
+        font-size: 13px;
+    }
+    .item-box-inner-narrow {
+        width: 13%;
+        float: left;
+        font-size: 13px;
+    }*/
+
+            .item-box-inner.strong {
+                font-size: 15px;
+            }
+
+            .item-zcy-inner {
+                width: 16.666%;
+                font-size: 15px;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+            }
+
+            .item-zcy-inner.sm {
+                font-size: 12px;
+            }
+
+            .item-zcy-inner .border {
+                width: 1px;
+                background-color: #333;
+                position: absolute;
+                top: -5px;
+                bottom: -5px;
+                left: 0;
+                margin-right: 10px;
+                display: block;
+            }
+
+            .font-bold {
+                font-weight: bold;
+            }
+
+            .mal-14 {
+                margin-left: 14px;
+            }
+
+            .mat-10 {
+                margin-top: 10px;
+            }
+
+            .mab-14 {
+                margin-bottom: 14px;
+            }
+
+            .userinfo-wrapper {
+                border: 1px solid #333;
+                border-radius: 6px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .bottom-table-inner {
+                width: 16.667%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                float: left;
+                font-size: 13px;
+                position: relative;
+                box-sizing: border-box;
+            }
+
+            .bottom-table-inner .border {
+                display: block;
+                border-right: 1px solid #333;
+            }
+
+            .bottom-table-inner:not(:first-child) {
+                padding-left: 14px;
+            }
+
+            .remark-info {
+                font-size: 12px;
+                margin-top: 11px;
+                line-height: 24px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .custom-style {
+                position: relative;
+                text-align: right;
+            }
+
+            .custom-style-left {
+                position: absolute;
+                text-align: left;
+                left: 0;
+            }
+
+            .custom-style-right {
+                position: absolute;
+                text-align: left;
+                right: 0;
+            }
+
+            .divider {
+                width: 100%;
+                height: 1px;
+                background-color: #333;
+            }
+
+            .tag-list {
+                margin: 0;
+                padding: 0;
+                padding-left: 14px;
+                margin-top: 28px;
+            }
+
+            .tag-list>li {
+                padding: 2px 8px;
+                border: 1px solid #333;
+                font-size: 15px;
+                border-radius: 4px;
+                float: left;
+                list-style: none;
+            }
+
+            .tag-list>li+li {
+                margin-left: 16px;
+            }
+
+            .title-info {
+                font-size: 12px;
+                margin-top: 13px;
+                margin-bottom: 9px;
+            }
+
+            .item-info {
+                font-size: 13px;
+                line-height: 22px;
+            }
+
+            .item-info.lg {
+                font-size: 15px;
+            }
+
+            .remark-text {
+                font-size: 15px;
+                line-height: 26px;
+            }
+
+            .print-table {
+                width: 100%;
+                margin-top: 7px;
+                border-spacing: 0;
+            }
+
+            .print-table thead td {
+                padding: 14px 0;
+                border-bottom: 1px dashed #333;
+                font-size: 15px;
+            }
+
+            .print-table tbody td {
+                font-size: 14px;
+                line-height: 26px;
+            }
+
+            .print-table.border {
+                border: 1px solid #333;
+                border-radius: 6px;
+                padding-left: 14px;
+                padding-right: 14px;
+                padding-bottom: 10px;
+                margin-top: 20px;
+            }
+
+            .strong-tag {
+                display: inline-block;
+                border: 1px solid #333;
+                border-radius: 4px;
+                padding: 2px;
+                line-height: normal;
+            }
+
+            .strong-tag+.strong-tag {
+                margin-left: 3px;
+            }
+
+            .strong-tag:first-child {
+                margin-left: 3px;
+            }
+
+            .strong-tag:last-child {
+                margin-right: 3px;
+            }
+
+            .print-table tbody>tr:first-child td {
+                padding-top: 15px;
+            }
+
+            .txt-c {
+                text-align: center;
+            }
+
+            .txt-l {
+                text-align: left;
+            }
+
+            .txt-r {
+                text-align: right;
+            }
+
+            .code-text {
+                font-size: 13px;
+                margin-left: 12px;
+                line-height: 26px;
+            }
+
+            .code-img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .code-info-wrapper {
+                position: absolute;
+                margin-left: 23px;
+                bottom: 0;
+                right: 0;
+            }
+
+            .tab-list {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 30px;
+                position: fixed;
+                z-index: 10;
+                background-color: #fff;
+            }
+
+            .tab-list>li {
+                float: left;
+                height: 35px;
+                line-height: 35px;
+                font-size: 14px;
+                padding: 0 15px;
+                text-align: center;
+                list-style: none;
+                border: 1px solid;
+                cursor: pointer;
+            }
+
+            .tab-list>li.active {
+                background-color: #4c9eda;
+                color: #fff;
+                border-color: #4c9eda;
+            }
+
+
+            .sign-img {
+                max-width: 60px;
+                height: 30px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .stamp-icon {
+                height: 80px;
+                position: absolute;
+                top: 450px;
+                z-index: -1;
+                left: 45%;
+            }
+
+            .managerstamp-icon {
+                height: 20px;
+                z-index: -1;
+                transform: rotate(-2deg);
+                vertical-align: text-top;
+            }
+
+
+            .factory-bg {
+                width: 600px;
+                position: absolute;
+                top: 40%;
+                left: 10%;
+                bottom: 0;
+                z-index: -1;
+            }
+
+            .strong-color {
+                color: red;
+            }
+
+            .doctor-name {
+                display: inline-block;
+                /* width: 78px; */
+                word-wrap: break-word;
+                font-size: 13px;
+            }
+
+            .doctor-name-supplier {
+                display: inline-block;
+                width: 58px;
+                word-wrap: break-word;
+                font-size: 14px;
+            }
+
+            .doctor-sign-img {
+                display: block;
+                width: 65px;
+                margin-top: 5px;
+            }
+
+            .doctor-sign-img-supplier {
+                display: inline-block;
+                vertical-align: bottom;
+                margin-left: 23px;
+                position: relative;
+                bottom: -20px;
+                width: 99px;
+                height: 46px;
+            }
+
+            .doctor-box {
+                padding: 18px;
+                padding-left: 14px;
+                padding-right: 14px;
+                width: 95px;
+            }
+
+            .doctor-box-title {
+                font-size: 13px;
+            }
+
+            .bottom-box {
+                border: 1px solid #333;
+                border-radius: 4px;
+                margin-top: 14px;
+            }
+
+            .bottom-right-box {
+                border-left: 1px solid #333;
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+
+
+
+        <!--startprint-->
+        <div class="print-wrapper">
+            <!-- tab切换 开始-->
+
+            <!-- tab切换 结束-->
+
+
+
+
+            <!-- 药房联 开始 用户联开始-->
+            <div class="print relative" id="userBox" style="display:block;">
+                <!-- 水印 -->
+                <div class="clear">
+                    <img alt="二维码2" class="code" src="https://dev.igancao.com/index.php/barcode?text=1231661109603">
+                </div>
+                <div class="clear relative">
+
+                    <div class="flo-l">
+                        <img src="https://dev.igancao.com/static/app/img/print/logo.png?t=1681868884" height=40
+                            class="logo" style="margin-left:15px;">
+                        <span class="logo-title"></span>
+                    </div>
+                    <div class="flo-r">
+                        <div class="small-title"></div>
+                    </div>
+
+                </div>
+                <div class="clear title-info">
+                    <div class="flo-l mal-14">服药前请核对姓名、电话、医生等信息以及服法、医嘱等要点</div>
+                    <div class="flo-r">
+                        <span>日期：2023-04-18 10:13</span>
+                        <span style="margin-left:32px;">编号：G16817839638611096</span>
+                    </div>
+                </div>
+
+                <div class="userinfo-wrapper">
+                    <div class="userinfo-box">
+                        <span class="userinfo-box-limit">姓名：加急的患者</span>
+                        <span class="userinfo-box-limit">性别：男</span>
+                        <span class="userinfo-box-limit">年龄：88岁</span>
+                        <span class="userinfo-box-limit">电话：15325414095</span>
+                    </div>
+                    <div class="userinfo-box">收件信息：痞老板 &nbsp;&nbsp;
+                        15325414095 &nbsp;&nbsp;
+                        浙江省,杭州市,滨江区,江南大学3楼</div>
+                    <div class="userinfo-box">
+                        临床诊断：虚风内动证, </div>
+
+                </div>
+                <!--content_main begin-->
+                <div class="relative" style="min-height: 540px;">
+                    <table class="print-table">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <div style="width:41px;padding-left:15px;">Rp.</div>
+                                </td>
+                                <td class="txt-c">
+                                    <div style="width:89px;">用药 (单剂)</div>
+                                </td>
+                                <td>
+                                    <div style="width:61px;"></div>
+                                </td>
+                                <td class="txt-r">
+                                    <div style="width:61px;">用量</div>
+                                </td>
+                                <td>
+                                    <div style="width:79px;"></div>
+                                </td>
+                                <td>
+                                    <div style="width:33px;"></div>
+                                </td>
+                                <td class="txt-c">
+                                    <div style="width:89px;">用药 (单剂)</div>
+                                </td>
+                                <td>
+                                    <div style="width:61px;"></div>
+                                </td>
+                                <td class="txt-r">
+                                    <div style="width:61px;">用量</div>
+                                </td>
+                                <td>
+                                    <div style="width:33px;"></div>
+                                </td>
+                            </tr>
+                        </thead>
+
+
+
+                        <tbody>
+                            <tr>
+
+                                <td alt="Rp">
+                                    <div style="width:43px;"></div>
+                                </td>
+                                <td alt="用药 (单剂)" class="txt-c ">
+                                    <div style="width:109px;">当归</div>
+                                </td>
+                                <td alt="签名">
+                                    <div style="width:61px;"></div>
+                                </td>
+                                <td alt="用量" class="txt-r">
+                                    <div style="width:60px;">18克</div>
+                                </td>
+                                <td>
+                                    <div style="width:9px;"></div>
+                                </td>
+
+                                <td alt="Rp">
+                                    <div style="width:43px;"></div>
+                                </td>
+                                <td alt="用药 (单剂)" class="txt-c ">
+                                    <div style="width:109px;">麸泽泻</div>
+                                </td>
+                                <td alt="签名">
+                                    <div style="width:61px;"></div>
+                                </td>
+                                <td alt="用量" class="txt-r">
+                                    <div style="width:60px;">24克</div>
+                                </td>
+                                <td>
+                                    <div style="width:34px;"></div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td alt="Rp">
+                                    <div style="width:43px;"></div>
+                                </td>
+                                <td alt="用药 (单剂)" class="txt-c ">
+                                    <div style="width:109px;">生川芎</div>
+                                </td>
+                                <td alt="签名">
+                                    <div style="width:61px;"></div>
+                                </td>
+                                <td alt="用量" class="txt-r">
+                                    <div style="width:60px;">24克</div>
+                                </td>
+                                <td>
+                                    <div style="width:9px;"></div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--content_main end-->
+
+                <!--tail begin-->
+                <div style="padding-left: 10px;">
+                    <ul class="tag-list clear">
+                    </ul>
+                    <div class="clear" style="margin-top:14px;padding-left:14px;">
+                        <div class="flo-l item-title">煎服：</div>
+                        <div class="overflow-hidden item-info">一天2次</div>
+                    </div>
+                    <div class="clear" style="margin-top:14px;padding-left:14px;">
+                        <div class="flo-l item-title">医嘱：</div>
+                        <div class="overflow-hidden item-info"></div>
+                    </div>
+                    <div class="bottom-box">
+                        <div class="flo-l doctor-box">
+                            <div class="doctor-box-title">医师：</div>
+                            <div>
+                                <span class="doctor-name">洪羽</span>
+                                <img class="doctor-sign-img"
+                                    src="https://dev.igancao.com/static/adminer/img/name3.png?t=1681868884">
+                            </div>
+                        </div>
+                        <div class="overflow-hidden bottom-right-box">
+                            <div class="clear item-box">
+                                <!--这儿是用户联 -->
+                                <span class="item-box-inner" style="width:11%;">审方:</span>
+                                <span class="item-box-inner" style="width:11%;">配药:</span>
+                                <span class="item-box-inner" style="width:11%;">复核:</span>
+                                <span class="item-box-inner" style="width:11%;">发药:</span>
+                                <span class="item-box-inner" style="width:21%;">类型:不代煎 </span>
+                                <span class="item-box-inner" style="width:13%;">剂数:7剂</span>
+                                <span class="item-box-inner" style="width:21%;padding-left:5px;">单剂量:66克</span>
+
+                            </div>
+                            <div class="divider"></div>
+                            <div class="clear item-box">
+                                <span class="item-box-inner" style="width:18%;">医药费:59.13元</span>
+                                <span class="item-box-inner" style="width:12%;">诊金:0元</span>
+                                <span class="item-box-inner" style="width:21%;">制作费:0元</span>
+                                <span class="item-box-inner" style="width:12%;">运费:12元</span>
+                                <span class="item-box-inner" style="width:16%;">优惠:0元</span>
+                                <span class="item-box-inner font-bold"
+                                    style="width:21%;padding-left:0px;">合计:71.13元</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear remark-info custom-style" style="margin-top:10px;">
+                        <span class="flo-l custom-style-left">
+                            <div>客服电话：400-826-2727&nbsp;&nbsp;&nbsp;投诉电话：057128094167</div>
+                            <div>工作时间：周一到周日 8:00-21:00</div>
+                            <div>注：1.药材名称和价格可能因地区药库差异有所不同；<br>2.处方3日有效；</div>
+                        </span>
+                        <span class="flo-r custom-style-right">
+                            <span>
+                                <img alt="查看用药说明"
+                                    src="https://dev.igancao.com/static/qrcode/recipe_instruction_qrcode_0.jpg"
+                                    class="code-img bottom-align" />
+                                <div class="bottom-align code-text">
+                                    <div>扫一扫</div>
+                                    <div>查看用药说明</div>
+                                </div>
+                            </span>
+                            <span style="margin-left:29px;">
+                                <img alt="随时咨询医生"
+                                    src="https://storage2.igancao.com/auto_recycle/BE/E/0beaeb0c0dd707b525c07cd7f1eefe74.png"
+                                    class="code-img bottom-align" />
+                                <div class="bottom-align code-text">
+                                    <div>扫一扫</div>
+                                    <div>随时咨询医生</div>
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <!--tail end-->
+
+
+
+            </div>
+            <!-- 药房联 结束 用户联  结束-->
+
+        </div>
+        <!-- <script src="./LodopFuncs.js"></script> -->
+        <script src="http://localhost:8000/CLodopFuncs.js"></script>
+        <script>
+             var bdhtml = document.documentElement.outerHTML
+            preview(); 
+            function preview() {
+                LODOP.PRINT_INIT()
+                LODOP.SET_PRINT_PAGESIZE(0, 0, 0, "A4");
+                
+                LODOP.SET_PRINT_MODE("FULL_WIDTH_FOR_OVERFLOW",true);
+                LODOP.SET_PRINT_MODE("FULL_HEIGHT_FOR_OVERFLOW",true);
+
+
+                LODOP.ADD_PRINT_HTM(0, 20, "100%", "100%", bdhtml);
+
+                LODOP.SET_PRINT_STYLEA(0,"Horient",2);        
+		        LODOP.SET_PRINT_STYLEA(0,"Vorient",2);  
+
+                LODOP.PREVIEW(); //预览
+                // LODOP.PRINT();  // 打印 
+            }
+
+       </script> 
+        <!--------------------------------------------------------------------------    js 结束 --------------------------------------------------------->
+    </body>
+
+</html>

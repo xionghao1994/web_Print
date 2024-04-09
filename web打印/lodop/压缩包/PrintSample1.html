@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP的样例一:在页面内引入打印控件</title>
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+
+<table cellpadding="0" cellspacing="0" border="0" width="78%" height="152">
+  <tr>
+    <td width="100%" height="20"><h2><font color="#009999">演示如何在页面内引入打印控件Lodop：</font></h2></td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" height="20"><b><font size="3" face="黑体">一、嵌入方式：</font></b></td>
+  </tr>
+  <tr>
+    <td width="100%" height="20">
+<font>&nbsp;通常情况下,在页面中嵌入Lodop如下引用代码，然后用一个全局对象变量来使用控件：</font></td>       
+  </tr>
+  <tr>
+    <td width="100%" height="20">·在head或body中加入：</td>
+  </tr>
+  <tr>
+    <td width="100%" height="20"><font size="2" color="#0000FF" >&lt;script                 
+      src=&quot;LodopFuncs.js&quot;&gt;&lt;/script&gt;</font></td>                
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font size="2" color="#0000FF" >&lt;object&nbsp;                 
+      id=&quot;LODOP_OB&quot; classid=&quot;clsid:2105C259-1E0C-4534-8141-A753534CB4CA&quot;                 
+      width=0 height=0&gt;&nbsp;</font></td>                        
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font size="2" color="#0000FF" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      &lt;embed id=&quot;LODOP_EM&quot; type=&quot;application/x-print-lodop&quot;                 
+      width=0 height=0&gt;&lt;/embed&gt;</font></td>                      
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font size="2" color="#0000FF" >&lt;/object&gt;</font></td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font >·在调用Lodop功能前，先用如下JS过程获得控件对象：</font></td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font color="#0000FF" size="2" >&nbsp;&nbsp;&nbsp;      
+      var </font><font color="#0000FF" size="2">LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));</font></td>              
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">·现在测试一下:<a href="javascript:CheckIsInstall()">查看本机是否安装(控件或web打印服务)</a></td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">·当页面不添加以上代码时，getLodop过程会动态建立它们，语句简化如下(推荐)：</td>
+  </tr>
+  <tr>  
+    <td width="100%" height="20"><font color="#0000FF" size="2" >&nbsp;&nbsp;&nbsp;var LODOP=getLodop();</font></td>              
+  </tr> 
+  <tr>  
+    <td width="100%" height="20">·如果仅部署C-Lodop则更简单，以上所有代码都省略，只加如下一句：</td>
+  </tr>
+  <tr>
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp;&nbsp;<font size="2" color="#0000FF" >&lt;script                 
+      src=&quot;http://localhost:8000/CLodopFuncs.js&quot;&gt;&lt;/script&gt;</font></td>                
+  </tr> 
+  <tr>  
+    <td width="100%" height="10"></td>  
+  </tr>   
+  <tr> 
+    <td width="100%" height="20"><b><font size="3" face="黑体">二、相关文件：</font></b> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="100%" height="20"><font color="#0000FF">·install_lodop32.exe和install_lodop64.exe</font></td> 
+  </tr> 
+  <tr> 
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp;            
+      这俩文件是安装和升级Lodop控件的主程序，对应32位和64位浏览器（注意浏览器位数不是操作系统位数）</td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp; 提供给用户下载后使用，如果将它们复制或改名为<font color="#0000FF">uninstall_lodop32.exe</font>(名前加un)就可用其卸载控件。</td>   
+  </tr>  
+  <tr> 
+    <td width="100%" height="20"><font color="#0000FF">·CLodop_Setup_for_Win32NT.exe</font></td> 
+  </tr> 
+  <tr> 
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp;            
+      这是web打印服务C-Lodop标准版安装主程序，它是个JS服务(内含Lodop)，适合所有浏览器，可替代前者。</td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font color="#0000FF">·LodopFuncs.js</font></td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp;           
+      该文件是个样例(很简单尽量看懂它)，其中的<span LANG="ZH"><font color="#0000FF">getLodop</font></span>过程根据浏览器类型检查是否安装、是否最新版本，</td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp; 然后引导用户对应下载执行install_lodopXX.exe文件或CLodop_Setup_for_Win32NT.exe。</td>   
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font color="#0000FF">·实体文件</font></td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp; Lodop控件被安装后，其实体文件<font color="#0000FF">CAOSOFT_WEB_PRINT_LODOP.OCX</font>和<font color="#0000FF">NPCAOSOFT_WEB_PRINT_lodop.dll</font></td> 
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp;  被安装在系统Program Files\MountTaiSoftware\Lodop目录下，而C-Lodop实体被安装在：</td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">&nbsp;&nbsp;&nbsp;  Program Files\MountTaiSoftware\CLodop32下，其中<font color="#0000FF">CLodopPrint32.exe</font>是主服务程序。</td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="10"></td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><b><font size="3" face="黑体">三、支持的浏览器：</font></b>  
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="100%" height="20">目前支持<font color="#0000FF">IE系列、IE内核系列</font>(QQ、搜狗、UC、360等外壳)浏览器，以及<font color="#0000FF">Chrome</font>(谷歌)系列、</td>   
+  </tr>  
+  <tr>  
+    <td width="100%" height="20"><font color="#0000FF">Firefox</font>(火狐)系列、<font color="#0000FF">Opera</font>系列、
+<font color="#0000FF">Safari</font>系列等各种浏览器的几乎所有版本。</td>  
+  </tr>  
+ 
+ 
+</table> 
+ 
+<script language="javascript" type="text/javascript">    
+	function CheckIsInstall() {	 
+		try{ 
+		     var LODOP=getLodop(); 
+			if (LODOP.VERSION) {
+				 if (LODOP.CVERSION)
+				 alert("当前有WEB打印服务C-Lodop可用!\n C-Lodop版本:"+LODOP.CVERSION+"(内含Lodop"+LODOP.VERSION+")"); 
+				 else
+				 alert("本机已成功安装了Lodop控件！\n 版本号:"+LODOP.VERSION); 
+
+			};
+		 }catch(err){ 
+ 		 } 
+	}; 
+</script> 
+ 
+ 
+<p><a href="PrintSampIndex.html">&lt;&lt;回样例目录</a></p> 
+ 
+</body> 
+</html>
